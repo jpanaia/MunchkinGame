@@ -7,15 +7,16 @@ body {
 h1 {
 	font-size: 50px;
 	font-weight: normal;
-	background: #336699;
+	background: #000;
 	color: #fff;
 	text-align: center;
-	height: 50px;
+	height: 100px;
 	padding: 20px;
 	margin-top: 0;
 
 }
 
+/*
 h2 {
 	font-size: 30px;
 	text-transform: uppercase;
@@ -33,25 +34,25 @@ button {
 	background: #666;
 	border: 0;
  	font-size: 30px;
- 	padding: 20px 30px;
+ 	padding: 10px 20px;
  	margin: 10px;
- 	border-radius: 8px;
+ 	border-radius: 4px;
  	cursor: pointer;
 }
 
 button:hover {
 	background: #000;
 }
-
+*/
 .card {
-	width: 100px;
-	height: 100px;
+	width: 110px;
+	height: 130px;
 	text-align: center;
 	padding: 30px 10px 10px;
-	font-weight: bold;
 	font-size: 20px;
 	float: left;
     margin: 5px;
+    color: #fff;
 }
 
 .table-board {
@@ -61,12 +62,11 @@ button:hover {
 .hand {
 	border: 1px solid #ccc;
 	padding: 10px;
-	height: 400px;
+	height: 162px;
 	width: 90%;
 }
 
-.half {
+/*.half {
 	width: 50%;
-/*	background: blue;
-*/	float: left;
-}
+float: left;
+}*/

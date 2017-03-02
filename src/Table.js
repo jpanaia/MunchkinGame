@@ -58,18 +58,26 @@ export default class Table extends Component{
     render() {
         return (
           <div className='table-board'>
-          <div className="buttons">
-           <button onClick={() => this.handleDealButton()} type="button" className="btn btn-info">Deal</button>
-           <button onClick={() => this.handleDrawButton()} type="button" className="btn btn-info">Draw</button>
+          <div className="row">
+            <div className="col-md-6">
+              <div className='btn-group'>
+                <button onClick={() => this.handleDealButton()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Deal</button>
+                <button onClick={() => this.handleDrawButton()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Draw</button>
+              </div>
+            </div>
           </div>
 
-           <div className="half">
-              <h2>Dealer (Computer)</h2>
-              <Hand hand={this.state.dealer} />
-            </div>
-            <div className="half">
-              <h2>Player (You)</h2>  
-              <Hand hand={this.state.player} /> 
+           <div className="row">
+              <div className="col-md-6">
+               <h2>Dealer (Computer)</h2>  
+               Hand: <Hand hand={this.state.dealer} />
+               Discards: <h3>Discards</h3>
+              </div>
+              <div className="col-md-6">
+                <h2>Player (You)</h2>  
+                Hand: <Hand hand={this.state.player} />
+                Discards: <h3>Discards</h3> 
+              </div>
             </div>
           </div>
         );
