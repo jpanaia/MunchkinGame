@@ -4,16 +4,15 @@ var _ = require('lodash');
 export default class Card extends Component{
     constructor() {
         super();
-
-        this.state = {
-            discard1: [],
-            discard2: []
-        }
     }
 
     playCard() {
         console.log('yo');
+        this.props.player1play(this.props.face);
 
+        // this.setState({
+        //     discard1: this.props.face
+        // })
     }
 
     render() {

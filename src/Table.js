@@ -6,12 +6,14 @@ export default class Table extends Component{
     constructor(props) {
       super(props);
 
-      let shuffled = _.shuffle(this.props.deck);
+     // let shuffled = _.shuffle(this.props.deck);
       this.state = {
           // table deck shuffle
-            deck: shuffled,
+            deck: this.props.deck,
             player1: [],
-            player2: []
+            player2: [],
+            discard1: [/*{n: "pp", v: 1}*/],
+            discard2: []
       }
       //console.log(this)
     }
@@ -66,9 +68,14 @@ export default class Table extends Component{
       //console.log(this)
     }
 
-    handlePlayCard(card){
-        console.log('yo');
+    player1play() {
+        console.log('player1play')
     }
+
+    player2play(){
+        console.log('player2play')
+    }
+
     render() {
         return (
           <div className='table-board'>
@@ -87,14 +94,12 @@ export default class Table extends Component{
               <div className="col-md-6">
                <h2>Player 1</h2>
                Hand: <Hand hand={this.state.player1} />
-               <h3>In Play</h3>
-               <div className="in-play-1"></div>
+               In Play: <Hand hand={this.state.discard1} play={this.player1play.bind(this)}/>
               </div>
               <div className="col-md-6">
                 <h2>Player 2</h2>
                 Hand: <Hand hand={this.state.player2} />
-                <h3>In Play</h3>
-                <div className="in-play-2"></div>
+                In Play: <Hand hand={this.state.discard2} play={this.player2play.bind(this)}/>
               </div>
             </div>
           </div>
