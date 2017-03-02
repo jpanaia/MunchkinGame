@@ -7,7 +7,7 @@ class App extends Component {
 
   constructor() {
     super();
-       
+
     this.state = {
       deck: [
         { n: "pp", v: 1 },

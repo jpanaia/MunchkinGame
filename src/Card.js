@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 var _ = require('lodash');
 
-export default class Card extends Component{ 
+export default class Card extends Component{
+    constructor() {
+        super();
+
+        this.state = {
+            discard1: [],
+            discard2: []
+        }
+    }
+
+    playCard() {
+        console.log('yo');
+
+    }
+
     render() {
       let bgColor = '';
       let name = '';
@@ -33,12 +47,12 @@ export default class Card extends Component{
        /* var bgUrl = (this.props.hidden)
             ? 'url(img/hidden.png)'
             : 'url(img/' + this.props.face + '.jpg)';*/
-             
+
         /* in react we pass the css properties as an object with camelCase variables referring to the respective CSS variables */
         let cardStyle = {backgroundColor: bgColor};
 
         return (
-            <div className='card' style={cardStyle}>{name}</div>
+            <div className='card' style={cardStyle} onClick={this.playCard.bind(this)}>{name}</div>
         );
     }
 

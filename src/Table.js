@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import Hand from './Hand';
 var _ = require('lodash');
 
-export default class Table extends Component{ 
+export default class Table extends Component{
     constructor(props) {
       super(props);
-      
+
       let shuffled = _.shuffle(this.props.deck);
       this.state = {
           // table deck shuffle
             deck: shuffled,
-            dealer: [],
-            player: []
+            player1: [],
+            player2: []
       }
       //console.log(this)
     }
@@ -19,8 +19,8 @@ export default class Table extends Component{
     /* function to handle the event of user clicking the Deal button */
     handleDealButton() {
           let deck        = this.state.deck;
-          let playerhand  = [];
-          let dealerhand  = [];
+          let player1hand  = [];
+          let player2hand  = [];
 
           //check deck size to see if we need to shuffle a new deck
           /* if(deck.length < 5){
@@ -28,55 +28,73 @@ export default class Table extends Component{
           }*/
 
           //player hand, deal 1 card
-          playerhand.push(deck.pop());
+          player1hand.push(deck.pop());
 
           //burn 3 cards
           _(3).times(() => deck.pop());
 
-          //dealer card
-          dealerhand.push(deck.pop());
+          //player 2 card
+          player2hand.push(deck.pop());
 
           //set the updates
           this.setState({
-              player:  playerhand,
-              dealer: dealerhand,
+              player1: player1hand,
+              player2: player2hand,
               deck: deck,
               status: "playing"
           });
           //console.log(this)
     }
-    handleDrawButton() {
-      let playerHand = this.state.player;
+    handleDrawPlayer1Button() {
+      let playerHand = this.state.player1;
       let shuffled = _.shuffle(this.state.deck);
       playerHand.push(shuffled.pop());
       this.setState({
-            player:  playerHand,
+            player1:  playerHand,
             deck : shuffled,
       });
+    }
+
+    handleDrawPlayer2Button() {
+        let playerHand = this.state.player2;
+        let shuffled = _.shuffle(this.state.deck);
+        playerHand.push(shuffled.pop());
+        this.setState({
+              player2:  playerHand,
+              deck : shuffled,
+        });
       //console.log(this)
+    }
+
+    handlePlayCard(card){
+        console.log('yo');
     }
     render() {
         return (
           <div className='table-board'>
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-6 col-md-offset-4">
               <div className='btn-group'>
                 <button onClick={() => this.handleDealButton()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Deal</button>
-                <button onClick={() => this.handleDrawButton()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Draw</button>
+                <button onClick={() => this.handleDrawPlayer1Button()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Player 1 Draw</button>
+                <button onClick={() => this.handleDrawPlayer2Button()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Player 2 Draw</button>
+
               </div>
             </div>
           </div>
 
            <div className="row">
               <div className="col-md-6">
-               <h2>Dealer (Computer)</h2>  
-               Hand: <Hand hand={this.state.dealer} />
-               Discards: <h3>Discards</h3>
+               <h2>Player 1</h2>
+               Hand: <Hand hand={this.state.player1} />
+               <h3>In Play</h3>
+               <div className="in-play-1"></div>
               </div>
               <div className="col-md-6">
-                <h2>Player (You)</h2>  
-                Hand: <Hand hand={this.state.player} />
-                Discards: <h3>Discards</h3> 
+                <h2>Player 2</h2>
+                Hand: <Hand hand={this.state.player2} />
+                <h3>In Play</h3>
+                <div className="in-play-2"></div>
               </div>
             </div>
           </div>
