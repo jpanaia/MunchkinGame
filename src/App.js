@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import Table from './Table';
-import './App.css';
 var _ = require('lodash');
+
+import styled from 'styled-components';
+
+const Header = styled.h1`
+  font-size: 50px;
+  font-weight: normal;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  height: 100px;
+  padding: 20px;
+  margin-top: 0;
+`
 
 class App extends Component {
 
@@ -37,7 +49,7 @@ class App extends Component {
   render() {
     return (
       <div>
-          <h1>Munchkin Loot Letter</h1>
+        <Header>Munchkin Loot Letter</Header>
            <Table deck={this.shuffleDeck(this.state.deck)}/>
       </div>
     );

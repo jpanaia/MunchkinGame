@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import Hand from './Hand';
 var _ = require('lodash');
 
+import styled from 'styled-components';
+
+const TableBoard = styled.div`
+  padding: 20px;
+`
+
 export default class Table extends Component{
     constructor(props) {
       super(props);
@@ -78,31 +84,31 @@ export default class Table extends Component{
 
     render() {
         return (
-          <div className='table-board'>
-          <div className="row">
-            <div className="col-md-6 col-md-offset-4">
-              <div className='btn-group'>
-                <button onClick={() => this.handleDealButton()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Deal</button>
-                <button onClick={() => this.handleDrawPlayer1Button()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Player 1 Draw</button>
-                <button onClick={() => this.handleDrawPlayer2Button()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Player 2 Draw</button>
+          <TableBoard>
+            <div className="row">
+              <div className="col-md-6 col-md-offset-4">
+                <div className='btn-group'>
+                  <button onClick={() => this.handleDealButton()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Deal</button>
+                  <button onClick={() => this.handleDrawPlayer1Button()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Player 1 Draw</button>
+                  <button onClick={() => this.handleDrawPlayer2Button()} type="button" role="group" className="btn btn-lg btn-default btn-secondary">Player 2 Draw</button>
 
+                </div>
               </div>
             </div>
-          </div>
 
-           <div className="row">
-              <div className="col-md-6">
-               <h2>Player 1</h2>
-               Hand: <Hand hand={this.state.player1} />
-               In Play: <Hand hand={this.state.discard1} play={this.player1play.bind(this)}/>
+             <div className="row">
+                <div className="col-md-6">
+                 <h2>Player 1</h2>
+                 Hand: <Hand hand={this.state.player1} />
+                 In Play: <Hand hand={this.state.discard1} play={this.player1play.bind(this)}/>
+                </div>
+                <div className="col-md-6">
+                  <h2>Player 2</h2>
+                  Hand: <Hand hand={this.state.player2} />
+                  In Play: <Hand hand={this.state.discard2} play={this.player2play.bind(this)}/>
+                </div>
               </div>
-              <div className="col-md-6">
-                <h2>Player 2</h2>
-                Hand: <Hand hand={this.state.player2} />
-                In Play: <Hand hand={this.state.discard2} play={this.player2play.bind(this)}/>
-              </div>
-            </div>
-          </div>
+          </TableBoard>
         );
     }
 };

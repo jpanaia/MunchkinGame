@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import Card from './Card';
 var _ = require('lodash');
 
+import styled from 'styled-components';
+
+const HandBox = styled.div`
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 162px;
+  width: 90%;
+`
+
 export default class Hand extends Component{
       constructor(props) {
       super(props);
@@ -12,7 +21,7 @@ export default class Hand extends Component{
     render() {
 
         return (
-            <div className='hand'>
+            <HandBox>
 
                 {this.props.hand.map(function(card,i){
                     return <Card face={card.n} value={card.v} key={i}/>
@@ -28,7 +37,7 @@ export default class Hand extends Component{
                     //return <Card face={card.f} value={card.v} key={i}/>
                 })}*/}
 
-            </div>
+            </HandBox>
         );
     }
 

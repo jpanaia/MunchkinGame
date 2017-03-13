@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 var _ = require('lodash');
 
+import styled from 'styled-components';
+
+const CardBox = styled.div`
+  width: 110px;
+  height: 130px;
+  text-align: center;
+  padding: 30px 10px 10px;
+  font-size: 20px;
+  float: left;
+  margin: 5px;
+  color: #fff;
+  cursor: pointer;
+`
+
 export default class Card extends Component{
     constructor() {
         super();
@@ -51,7 +65,11 @@ export default class Card extends Component{
         let cardStyle = {backgroundColor: bgColor};
 
         return (
-            <div className='card' style={cardStyle} onClick={this.playCard.bind(this)}>{name}</div>
+            <CardBox 
+                style={cardStyle} 
+                onClick={this.playCard.bind(this)}>
+                {name}
+            </CardBox>
         );
     }
 
