@@ -38,5 +38,9 @@ export default class Hand extends Component{
             </HandBox>
         );
     }
+};
 
+Hand.propTypes = {
+  hand: React.PropTypes.array,
+  play: React.PropTypes.func
 };

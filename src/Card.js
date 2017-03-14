@@ -37,28 +37,28 @@ export default class Card extends Component{
     render() {
       let bgColor = '';
       let name = '';
-      if (this.props.face == 'pp') {
+      if (this.props.face === 'pp') {
         bgColor = '#047b04';
         name = 'Potted Plant';
-      } else if (this.props.face == 'mr') {
+      } else if (this.props.face === 'mr') {
         bgColor = '#1a1a9c';
         name = 'Maul Rat';
-      } else if (this.props.face == 'dd') {
+      } else if (this.props.face === 'dd') {
         bgColor = '#ffb300';
         name = 'Duck of Doom';
-      } else if (this.props.face == 'wr') {
+      } else if (this.props.face === 'wr') {
         bgColor = '#a881f1';
         name = 'Wishing Ring';
-      } else if (this.props.face == 'nt') {
+      } else if (this.props.face === 'nt') {
         bgColor = 'brown';
         name = 'Net Troll';
-      } else if (this.props.face == 'dg') {
+      } else if (this.props.face === 'dg') {
         bgColor = '#e62899';
         name = 'Dread Gazebo';
-      } else if (this.props.face == 'td') {
+      } else if (this.props.face === 'td') {
         bgColor = '#1da9c1';
         name = "Turbonium Dragon";
-      } else if (this.props.face == 'lt') {
+      } else if (this.props.face === 'lt') {
         bgColor = '#770f77';
         name = 'Loot';
       }
@@ -77,5 +77,9 @@ export default class Card extends Component{
             </CardBox>
         );
     }
+};
 
+Card.propTypes = {
+  face: React.PropTypes.string,
+  value: React.PropTypes.number
 };
