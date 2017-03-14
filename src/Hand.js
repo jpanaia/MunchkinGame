@@ -12,11 +12,9 @@ const HandBox = styled.div`
 `
 
 export default class Hand extends Component{
-      constructor(props) {
-      super(props);
-      //this.props.hand = [];
-      //console.log('hey', this.props);
-    }
+    // constructor(props) {
+    // super(props);
+    // }
 
     render() {
 
@@ -24,7 +22,7 @@ export default class Hand extends Component{
             <HandBox>
 
                 {this.props.hand.map(function(card,i){
-                    return <Card face={card.n} value={card.v} key={i}/>
+                    return <Card face={card.n} value={card.v} key={i} />
                 })}
 
                 {/* //return <Card face={card.f} value={card.v} key={i}/>

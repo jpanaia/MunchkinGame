@@ -17,16 +17,21 @@ const CardBox = styled.div`
 
 export default class Card extends Component{
     constructor() {
-        super();
+      super();
+
+      this.state = {
+        play: false
+      }
     }
 
-    playCard() {
-        console.log('yo');
-        this.props.player1play(this.props.face);
 
-        // this.setState({
-        //     discard1: this.props.face
-        // })
+
+    playCard() {
+        console.log('This card was played');
+
+        this.setState({
+            play: true
+        })
     }
 
     render() {
